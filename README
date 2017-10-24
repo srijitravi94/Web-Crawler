@@ -5,7 +5,7 @@ Submitted By : Srijit Ravishankar
 NUID : 001282238
 
 SUMMARY :
-		** The given instructions contains softwares installations and running the program that is suitable in MAC environment ** 
+		** The given instructions contains software installations and running the program that is suitable in MAC environment ** 
 
 This file consists procedures to follow to run the following programs:
 1. Task 1 : A python file implementing a basic web crawler, starting with the SEED : "https://en.wikipedia.org/wiki/Tropical_cyclone".
