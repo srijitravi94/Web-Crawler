@@ -1,0 +1,17 @@
+
+Focused Web crawler is implemented as follows:
+1. Starting from the SEED_URL , the links in the webpage are extracted and stored.
+2. In the next depth, each of these links are crawled after doing the below steps:
+	2.1. checking if it is a redirected page 
+		 This is done by extracting the headings of each wikipedia page crawled and checking if this page has already been crawled.
+	2.2. If it contains the keyword "rain"
+		 Based on the given examples, the keyword variations was handled by performing the following steps:
+			2.2.1. Check if the word "rain" is present in the URL or in anchor text.
+			2.2.2. If present, check if the preceding character to the word "rain" is an alphabet.
+			2.2.3. If it is an alphabet, the link is discarded. For e.g : train, falling_grain are discarded.
+			2.2.4. Else, if there are no preceding characters, or it is not an alpha numeric character, the link is crawled.
+3. If the above conditions are met, then the page is added to the crawledURLs list and its links are appended to the 'pages to crawl' list. 
+3. The above steps are repeated as long as:
+	3.1. The total number of pages are crawled are not more than 1000.
+	3.2. The depth traversed is not more than 6.
+	3.3. The pages to crawl is not empty.
