@@ -88,7 +88,7 @@ def generateFile(listOfLinks):
     file = open("focusedCrawledURLs.txt", "w")
     counter = 1
     for link in listOfLinks:
-        file.write(str(counter) + ") " + link + "\n")
+        file.write(str(counter) + ". " + link + "\n")
         counter = counter + 1
     file.close()
 
