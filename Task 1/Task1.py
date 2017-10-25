@@ -10,6 +10,7 @@ BASE_URL = "https://en.wikipedia.org"
 SEED_URL = "https://en.wikipedia.org/wiki/Tropical_cyclone"
 GIVEN_DEPTH = 6
 NO_OF_PAGES_TO_CRAWL = 1000
+MAIN_PAGE = "https://en.wikipedia.org/wiki/Main_Page"
 
 
 # A function that returns all the links of a given page
@@ -37,6 +38,7 @@ def addToList(list1,list2):
 
 
 # A function that returns a list of 1000 unique pages crawled from the given SEED_URL
+# A function that returns a list of 1000 unique pages crawled from the given SEED_URL
 def crawler(SEED_URL):
     pagesToCrawl = [SEED_URL]
     pagesCrawled = []
@@ -47,18 +49,19 @@ def crawler(SEED_URL):
     while pagesToCrawl and len(pagesCrawled) < NO_OF_PAGES_TO_CRAWL and depth <= GIVEN_DEPTH:
         page = pagesToCrawl.pop(0)
         if page not in pagesCrawled:
-            time.sleep(1)                                             # Implementing the politeness policy
-            links, header = getLinks(page)                            # Obtains all the links in given page
-            if header not in linkHeadings:                            # Handling redirected pages
+            time.sleep(1)                                                 # Implementing the politeness policy
+            links, header = getLinks(page)                                # Obtains all the links in given page
+            if header not in linkHeadings:                                # Handling redirected pages
                 linkHeadings.append(header)
                 nextSet = addToList(nextSet,links)
-                pagesCrawled.append(page)
-                print(str(count) + ". " + page + " : " + str(depth))  # Printing the depth of each page
-                count +=1
+                if page != MAIN_PAGE:
+                    pagesCrawled.append(page)
+                    print(str(count) + ". " + page + " : " + str(depth))  # Printing the depth of each page
+                    count +=1
             if len(pagesToCrawl)==0:
                 pagesToCrawl = nextSet
                 nextSet = []
-                depth += 1
+                depth += 1           
     return pagesCrawled
 
 
