@@ -38,7 +38,6 @@ def addToList(list1,list2):
 
 
 # A function that returns a list of 1000 unique pages crawled from the given SEED_URL
-# A function that returns a list of 1000 unique pages crawled from the given SEED_URL
 def crawler(SEED_URL):
     pagesToCrawl = [SEED_URL]
     pagesCrawled = []
